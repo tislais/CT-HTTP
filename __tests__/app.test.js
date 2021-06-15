@@ -6,7 +6,9 @@ describe('app routes', () => {
   it('/	GET	plain text "hi"', async () => {
     const actual = await request(app).get('/');
     const expected = 'hi';
+    
     expect(actual.text).toEqual(expected);
+    expect(actual.type).toEqual('text/html');
   });
 
   it('/echo	POST status code 200 and plain text with the request body', async () => {
