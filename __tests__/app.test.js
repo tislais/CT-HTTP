@@ -28,6 +28,12 @@ describe('app routes', () => {
     const expected = '<h1>green</h1>';
     expect(actual.text).toEqual(expected);
   });
+
+  it('/blue GET html with an h1 and the word blue', async () => {
+    const actual = await request(app).get('/blue');
+    const expected = '<h1>blue</h1>';
+    expect(actual.text).toEqual(expected);
+  });
 });
 
 
