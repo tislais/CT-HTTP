@@ -17,6 +17,7 @@ describe('app routes', () => {
     
     expect(actual.text).toEqual(expected);
     expect(actual.status).toEqual(200);
+    expect(actual.type).toEqual('text/plain');
   });
 
   it('/red GET html with an h1 and the word red', async () => {
