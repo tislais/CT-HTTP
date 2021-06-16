@@ -31,7 +31,7 @@ describe('app routes', () => {
   it('/green GET html with an h1 and the word green', async () => {
     const actual = await request(app).get('/green');
     const expected = '<h1>green</h1>';
-    
+
     expect(actual.text).toEqual(expected);
     expect(actual.type).toEqual('text/html');
   });
