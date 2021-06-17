@@ -52,6 +52,15 @@ describe('app routes', () => {
     expect(actual.text).toEqual(expected);
   });
 
+  it('/index.html returns not found if file doesnt exist', async () => {
+    const actual = await request(app).get('/nidex.html');
+    const expected = 'Not Found';
+    
+    expect(actual.text).toEqual(expected);
+  });
+
+
 });
+
 
 
