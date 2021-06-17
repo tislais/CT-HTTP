@@ -31,7 +31,7 @@ describe('app routes', () => {
   it('/green GET html with an h1 and the word green', async () => {
     const actual = await request(app).get('/green');
     const expected = '<h1>green</h1>';
-    
+
     expect(actual.text).toEqual(expected);
     expect(actual.type).toEqual('text/html');
   });
@@ -43,6 +43,24 @@ describe('app routes', () => {
     expect(actual.text).toEqual(expected);
     expect(actual.type).toEqual('text/html');
   });
+
+
+  it('/index.html returns file contents', async () => {
+    const actual = await request(app).get('/index.html');
+    const expected = '<h1>index.html</h1>';
+    
+    expect(actual.text).toEqual(expected);
+  });
+
+  it('/index.html returns not found if file doesnt exist', async () => {
+    const actual = await request(app).get('/nidex.html');
+    const expected = 'Not Found';
+    
+    expect(actual.text).toEqual(expected);
+  });
+
+
 });
+
 
 
